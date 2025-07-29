@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С Днём Рождения, Соня! 🐱🎉</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;700&display=swap');
+    body {
+        margin: 0;
+        font-family: 'Rubik', sans-serif;
+        background: url('cats-bg.jpg') center/cover fixed;
+        overflow-x: hidden;
+        color: #fff;
+    }
+    .overlay {
+        background: rgba(0,0,0,0.5);
+        min-height: 100vh;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+    }
+    h1 {
+        font-family: 'Pacifico', cursive;
+        font-size: 2.8em;
+        color: #ff80d5;
+        text-shadow: 0 0 10px #ff40ff;
+        animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+        0%,100% {transform: translateY(0);}
+        50% {transform: translateY(-10px);}
+    }
+    .gift {
+        background: rgba(255,255,255,0.15);
+        border: 2px dashed #ff80d5;
+        border-radius: 12px;
+        max-width: 420px;
+        margin: 20px auto;
+        padding: 15px;
+        backdrop-filter: blur(6px);
+    }
+    .gift h2 {
+        color: #ffd6f5;
+        text-shadow: 0 0 5px #ff80d5;
+    }
+    .cat {
+        width: 110px;
+        margin: 5px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        transform: rotate(-5deg);
+        transition: transform 0.3s;
+    }
+    .cat:hover {transform: rotate(5deg) scale(1.1);}
+    .footer {
+        margin-top: 30px;
+        font-size: 1.2em;
+        color: #ffe6ff;
+        text-shadow: 0 0 5px #ff80d5;
+    }
+    .falling-cat {
+        position: fixed;
+        width: 50px;
+        z-index: 1;
+        animation: fall 6s linear infinite;
+    }
+    @keyframes fall {
+        0% {transform: translateY(-100px) rotate(0deg);}
+        100% {transform: translateY(110vh) rotate(360deg);}
+    }
+</style>
+</head>
+<body>
+<div class="overlay">
+    <h1>🎉 С Днём Рождения, Соня! 😻</h1>
+    <p>Ты мой солнечный человечек! Пусть твой год будет полон любви, смеха, музыки и сумасшедших приключений! 🎶🐾</p>
+
+    <div class="gift">
+        <h2>🏝️ Подарок №1: Поездка на Принцевы острова</h2>
+        <p>Да, солнце! Мы едем в <b>роскошный отель</b> на островах — выходные с полным кайфом и 100% чиллом 😎</p>
+    </div>
+
+    <div class="gift">
+        <h2>📸 Подарок №2: Фотосессия от меня</h2>
+        <p>Ты — моя муза, и я устрою тебе фотосет мечты!<br><i>(Все детали обсудим в лс 😉)</i></p>
+    </div>
+
+    <img src="cat1.png" class="cat">
+    <img src="cat2.png" class="cat">
+    <img src="cat3.png" class="cat">
+
+    <p class="footer">С любовью, твоя лучшая подружка Алёна! 💌</p>
+</div>
+
+<script>
+const catImgs = ["cat1.png","cat2.png","cat3.png"];
+function spawnCat(){
+    const img=document.createElement("img");
+    img.src=catImgs[Math.floor(Math.random()*catImgs.length)];
+    img.className="falling-cat";
+    img.style.left=Math.random()*100+"vw";
+    img.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(img);
+    setTimeout(()=>img.remove(),6000);
+}
+setInterval(spawnCat,1200);
+</script>
+
+<audio autoplay>
+  <source src="meow.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
